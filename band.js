@@ -772,7 +772,7 @@ function savePdf() {
 		return;
 	}
 	$('#bottommessage').show().html("<span style='color: green;'>Preparing PDF, please wait...</span>");
-	$.post('save.php?action=save&format=pdf', {code: encode(false)}, null, 'text')
+	$.post('save.php?action=save&format=xml', {code: encode(false)}, null, 'text')
 		.done(function(data) {
 			$('#bottommessage').html("<span style='color: green;'>Done!<br>If the download does not start after 10 seconds, click <a href='" + data + "'>here</a>.</span>");
 			window.location.href = data;
