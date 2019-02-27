@@ -756,7 +756,7 @@ function save() {
 		return;
 	}
 	$('#bottommessage').show().html("<span style='color: green;'>Please wait...</span>");
-	$.post('save.php?action=save&format=txt', {code: encode(false)}, null, 'text')
+	$.patch('save.php?action=save&format=txt', {code: encode(false)}, null, 'text')
 		.done(function(data) {
 			$('#bottommessage').html("<span style='color: green;'>Click <a href='" + data + "'>here</a> to save the chart data file to your computer.<br>When you return to this page later, you can open the file by clicking the Load Saved Chart button at the top of the page.</span>");
 		})
@@ -772,7 +772,7 @@ function savePdf() {
 		return;
 	}
 	$('#bottommessage').show().html("<span style='color: green;'>Preparing PDF, please wait...</span>");
-	$.post('save.php?action=save&format=xml', {code: encode(false)}, null, 'text')
+	$.patch('save.php?action=save&format=xml', {code: encode(false)}, null, 'text')
 		.done(function(data) {
 			$('#bottommessage').html("<span style='color: green;'>Done!<br>If the download does not start after 10 seconds, click <a href='" + data + "'>here</a>.</span>");
 			window.location.href = data;
