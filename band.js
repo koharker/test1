@@ -789,7 +789,7 @@ function savePdf() {
 		// true = "handled elsewhere, bypass text extraction"
 		return true
 	    }
-	}
+	};
 
 	margins = {
 	    top: 80,
@@ -813,8 +813,9 @@ function savePdf() {
 		pdf.save('Test.pdf');
 	      },
 	    margins
-	  )
-
+	  );
+	pdf.save('test.pdf');
+	pdf.save('#title' & '.pdf');
 
 
 	
