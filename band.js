@@ -767,12 +767,18 @@ function save() {
 }
 
 function savePdf() {
+	var doc = new jsPDF();
+
+	doc.text('Hello world!', 10, 10);
+	doc.save('a4.pdf');
+	
+	
 	if(band.rows.length == 0) {
 		$('#bottommessage').show().html("<span style='color: red;'>Please create a chart first</span>");
 		return;
 	}
 	$('#bottommessage').show().html("<span style='color: green;'>Preparing PDF, please wait...</span>");
-	$.patch('save.php?action=save&format=xml', {code: encode(false)}, null, 'text')
+	$.post('save.php?action=save&format=xml', {code: encode(false)}, null, 'text')
 		.done(function(data) {
 			$('#bottommessage').html("<span style='color: green;'>Done!<br>If the download does not start after 10 seconds, click <a href='" + data + "'>here</a>.</span>");
 			window.location.href = data;
