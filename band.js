@@ -815,7 +815,7 @@ function savePdf() {
 	    margins
 	  );
 	pdf.save('test.pdf');
-	pdf.save('#title' & '.pdf');
+	pdf.save('.title' + '.pdf');
 
 
 	
